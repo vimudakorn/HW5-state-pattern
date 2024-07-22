@@ -1,5 +1,8 @@
+import java.util.Random;
+
 // 6510405792 Vimudakorn Kittechapanich
 public class ChooseFlavorState implements State {
+    Random randomWinner = new Random(System.currentTimeMillis());
     GumballMachine gumballMachine;
     public ChooseFlavorState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
@@ -18,19 +21,17 @@ public class ChooseFlavorState implements State {
     @Override
     public void turnCrank() {
         System.out.println("You turned...");
-        gumballMachine.setState(gumballMachine.winnerState);
+        int winner = randomWinner.nextInt(10);
+        if ((winner == 0) && (gumballMachine.getCountGumballs() > 1)) {
+            gumballMachine.setState(gumballMachine.winnerState);
+        } else {
+            gumballMachine.setState(gumballMachine.gumballSoldState);
+        }
     }
 
     @Override
     public void dispense() {
         System.out.println("please wait for gumball dispense");
-//        gumballMachine.releaseBall();
-//        if (gumballMachine.getCountGumballs() > 1) {
-//            gumballMachine.setState(gumballMachine.getGumballSoldState());
-//        } else {
-//            gumballMachine.setState(gumballMachine.getOutOfGumballsState());
-//        }
-//        System.out.println("please select flavor");
     }
 
     @Override
