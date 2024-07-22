@@ -4,6 +4,7 @@ public class GumballMachine {
     State hasQuarterState;
     State gumballSoldState;
     State outOfGumballsState;
+    State winnerState;
     State chooseFlavorstate;
 
     State state = outOfGumballsState;
@@ -16,6 +17,7 @@ public class GumballMachine {
         hasQuarterState = new HasQuarterState(this);
         gumballSoldState = new GumballSoldState(this);
         outOfGumballsState = new OutOfGumballsState(this);
+        winnerState = new WinnerState(this);
         chooseFlavorstate = new ChooseFlavorState(this);
         if (countGumballs > 0) {
             state = noQuarterState;
@@ -31,7 +33,6 @@ public class GumballMachine {
         state.turnCrank();
         state.dispense();
     }
-
     public void choose(String flavor) {
         state.chooseFlavor(flavor);
     }

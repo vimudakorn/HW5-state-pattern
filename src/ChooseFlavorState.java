@@ -18,7 +18,7 @@ public class ChooseFlavorState implements State {
     @Override
     public void turnCrank() {
         System.out.println("You turned...");
-        gumballMachine.setState(gumballMachine.getGumballSoldState());
+        gumballMachine.setState(gumballMachine.winnerState);
     }
 
     @Override
