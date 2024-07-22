@@ -9,7 +9,7 @@ public class ChooseFlavorState implements State {
         System.out.println("You can't insert quarter , please select flavor");
     }
 
-    @Overridex
+    @Override
     public void ejectQuarter() {
         System.out.println("Quarter returned...");
         gumballMachine.setState(gumballMachine.noQuarterState);
@@ -18,16 +18,19 @@ public class ChooseFlavorState implements State {
     @Override
     public void turnCrank() {
         System.out.println("You turned...");
+        gumballMachine.setState(gumballMachine.getGumballSoldState());
     }
 
     @Override
     public void dispense() {
-        gumballMachine.releaseBall();
-        if (gumballMachine.getCountGumballs() > 1) {
-            gumballMachine.setState(gumballMachine.getGumballSoldState());
-        } else {
-            gumballMachine.setState(gumballMachine.getOutOfGumballsState());
-        }
+        System.out.println("please wait for gumball dispense");
+//        gumballMachine.releaseBall();
+//        if (gumballMachine.getCountGumballs() > 1) {
+//            gumballMachine.setState(gumballMachine.getGumballSoldState());
+//        } else {
+//            gumballMachine.setState(gumballMachine.getOutOfGumballsState());
+//        }
+//        System.out.println("please select flavor");
     }
 
     @Override

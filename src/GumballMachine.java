@@ -47,14 +47,14 @@ public class GumballMachine {
     }
 
     public void printDetail() {
-        System.out.println("Mighty Gumball Inc.");
+        System.out.println("\nMighty Gumball Inc.");
         System.out.println("Java-enabled Standing Gumball Model #2004");
         System.out.println("Inventory: " + countGumballs + " gumballs");
         if (countGumballs > 0) {
-            System.out.println("Machine is waiting for quarter");
+            System.out.println("Machine is waiting for quarter\n");
         }
         else {
-            System.out.println("Machine is sold out");
+            System.out.println("Machine is sold out\n");
         }
     }
     public State getNoQuarterState() {
