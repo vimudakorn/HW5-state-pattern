@@ -32,6 +32,6 @@ public class GumballSoldState implements State {
 
     @Override
     public void chooseFlavor(String flavor) {
-
+        System.out.println("You have already gumballs");
     }
 }
